@@ -289,13 +289,21 @@ Route::get('/user/country/{id}', function($id) {
 
     $country = Country::find($id);
 
-    foreach ($country->posts as $post) {
+    foreach ($country->posts as $post)
+    {
         return $post->title;
     }
 
 });
 
 // Polymorphic relationship
-// Route::get('', function() {
+Route::get('/user/photo/{id}', function($id) {
 
-// });
+    $user = User::find($id);
+
+    foreach ($user->photos as $photo)
+    {
+        return $photo->path;
+    }
+
+});
