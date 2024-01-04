@@ -303,7 +303,8 @@ Route::get('/user/photo/{id}', function($id) {
 
     foreach ($user->photos as $photo)
     {
-        return $photo->path;
+        // return $photo->path;
+        echo $photo->path.'<br>';
     }
 
 });
