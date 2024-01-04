@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Country;
+use App\Models\Photo;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -306,5 +307,13 @@ Route::get('/user/photo/{id}', function($id) {
         // return $photo->path;
         echo $photo->path.'<br>';
     }
+
+});
+
+Route::get('/photo/{id}/post', function($id) {
+
+    $photo = Photo::findOrFail($id);
+
+    return $photo->imageable;
 
 });
