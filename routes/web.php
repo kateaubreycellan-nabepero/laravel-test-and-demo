@@ -5,6 +5,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Country;
 use App\Models\Photo;
+use App\Models\Tag;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -329,4 +330,14 @@ Route::get('/post/tag/{id}', function($id) {
     }
 
 
+});
+
+Route::get('/tag/post/{id}', function($id) {
+
+    $tag = Tag::find($id);
+
+    foreach($tag->posts as $post)
+    {
+        return $post;
+    }
 });
