@@ -317,3 +317,16 @@ Route::get('/photo/{id}/post', function($id) {
     return $photo->imageable;
 
 });
+
+// Polymorphic many-to-many relationship
+Route::get('/post/tag/{id}', function($id) {
+
+    $post  = Post::find($id);
+
+    foreach ($post->tags as $tag)
+    {
+        return $tag;
+    }
+
+
+});
