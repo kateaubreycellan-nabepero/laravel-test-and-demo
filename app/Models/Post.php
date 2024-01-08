@@ -19,7 +19,8 @@ class Post extends Model
     // For mass data assignment
     protected $fillable = [
         'title',
-        'content'
+        'content',
+        'path'
     ];
 
     public function user()
