@@ -28,3 +28,5 @@ Route::get('/about', function() {
 Route::get('/contact', function() {
     return "Some contact page here.";
 });
+
+Route::resource('/posts', 'App\Http\Controllers\PostController');
