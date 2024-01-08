@@ -3,8 +3,9 @@
 @section('content')
 
     <form action="/posts" method="post">
-        Title: <input type="text" name="title" placeholder="Enter title">
-        Content: <input type="text" name="content">
+        {{ csrf_field() }}
+        Title: <input type="text" name="title" placeholder="Enter title"><br>
+        Content: <input type="text" name="content"><br>
         <input type="submit" name="submit">
     </form>
 

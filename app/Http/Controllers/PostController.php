@@ -19,7 +19,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return "create() method called";
+        // return "create() method called";
+        return view('posts.create');
     }
 
     /**
@@ -27,12 +28,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**
      * Display the specified resource.
      */
+
     public function show(string $id)
     {
         return "Show post id: $id";
