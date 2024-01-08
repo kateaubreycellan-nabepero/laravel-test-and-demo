@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Country;
@@ -30,3 +31,16 @@ Route::get('/contact', function() {
 });
 
 Route::resource('/posts', 'App\Http\Controllers\PostController');
+
+Route::get('/dates', function() {
+    $date = new DateTime();
+
+    echo $date->format('m-d-Y');
+    echo '<br>';
+    echo Carbon::now()->addDays(10)->diffForHumans();
+    echo '<br>';
+    echo Carbon::now()->subMonths(5)->diffForHumans();
+    echo '<br>';
+    echo Carbon::now()->yesterday();
+
+});
