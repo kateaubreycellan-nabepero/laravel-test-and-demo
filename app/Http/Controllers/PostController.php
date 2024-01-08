@@ -13,7 +13,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
+        // $posts = Post::latest()->get();
+        // $posts = Post::orderBy('id', 'asc')->get();
+        $posts = Post::latest()->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -104,6 +107,11 @@ class PostController extends Controller
     {
         // return view('post')->with('id', $id);
         return view('post', compact('id', 'name', 'password'));
+    }
+
+    public static function scopeLatest($query)
+    {
+        return $query->orderBy('id', 'asc')->get();
     }
 
 }
