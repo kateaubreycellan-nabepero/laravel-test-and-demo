@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Http\Requests\CreatePostRequest;
 
 class PostController extends Controller
 {
@@ -28,12 +29,12 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'content' => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'title' => 'required',
+        //     'content' => 'required'
+        // ]);
 
         $status = Post::create($request->all());
         // return $status;
