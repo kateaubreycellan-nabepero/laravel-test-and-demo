@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    private $directory = "/images/";
+
     use HasFactory, SoftDeletes;
 
     protected $table = 'posts';
@@ -36,6 +38,11 @@ class Post extends Model
     public function tags()
     {
         return $this->morphToMany('\App\Models\Tag', 'taggable');
+    }
+
+    public function getPathAttribute($value)
+    {
+        return $this->directory . $value;
     }
 
 }
