@@ -52,3 +52,12 @@ Route::get('/getname/{id}', function($id) {
     return $user->name;
 
 });
+
+Route::get('/setname/{id}/{name}', function($id, $name) {
+
+    $user = User::findOrFail($id);
+
+    $user->name = $name;
+    $user->save();
+
+});
