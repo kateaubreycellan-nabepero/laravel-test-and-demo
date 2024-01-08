@@ -39,9 +39,15 @@ class PostController extends Controller
         //     'content' => 'required'
         // ]);
 
-        $status = Post::create($request->all());
-        // return $status;
-        return redirect('/posts');
+        $file = $request->file('file');
+        echo "<br>";
+        echo $file->getClientOriginalName();
+        echo "<br>";
+        echo $file->getSize();
+
+        // $status = Post::create($request->all());
+        // // return $status;
+        // return redirect('/posts');
 
     }
 
