@@ -45,7 +45,8 @@ class PostController extends Controller
     public function show(string $id)
     {
         // return "Show post id: $id";
-        return view();
+        $post = Post::findOrFail($id);
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -53,7 +54,8 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -61,7 +63,9 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+        return redirect('/posts');
     }
 
     /**
