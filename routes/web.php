@@ -44,3 +44,11 @@ Route::get('/dates', function() {
     echo Carbon::now()->yesterday();
 
 });
+
+Route::get('/getname/{id}', function($id) {
+
+    $user = User::findOrFail($id);
+
+    return $user->name;
+
+});
