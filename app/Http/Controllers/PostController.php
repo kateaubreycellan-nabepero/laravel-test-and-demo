@@ -10,9 +10,10 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($id)
+    public function index()
     {
-        return $id;
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -32,7 +33,8 @@ class PostController extends Controller
         // return $request->all();
 
         $status = Post::create($request->all());
-        return $status;
+        // return $status;
+        return redirect('/posts');
 
     }
 
@@ -42,7 +44,8 @@ class PostController extends Controller
 
     public function show(string $id)
     {
-        return "Show post id: $id";
+        // return "Show post id: $id";
+        return view();
     }
 
     /**
